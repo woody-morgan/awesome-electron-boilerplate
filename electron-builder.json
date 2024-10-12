@@ -1,0 +1,52 @@
+{
+  "appId": "com.your-company.app",
+  "productName": "awesome-electron-boilerplate",
+  "directories": {
+    "buildResources": "build"
+  },
+  "asarUnpack": ["resources/**"],
+  "extraFiles": [
+    {
+      "from": "resources/${os}",
+      "to": "Resources/bin",
+      "filter": ["**/*"]
+    }
+  ],
+  "files": [
+    "!**/.vscode/*",
+    "!src/*",
+    "!build-assets${/*}",
+    "!electron.vite.config.{js,ts,mjs,cjs}",
+    "!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}",
+    "!{.env,.env.*,.npmrc,pnpm-lock.yaml}",
+    "!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}"
+  ],
+  "win": {
+    "target": "nsis",
+    "artifactName": "${name}-${version}.${ext}",
+    "publisherName": "Your Company",
+    "requestedExecutionLevel": "requireAdministrator"
+  },
+  "nsis": {
+    "oneClick": true,
+    "allowElevation": true
+  },
+  "mac": {
+    "notarize": {
+      "teamId": "YOUR_TEAM_ID"
+    },
+    "category": "public.app-category.utilities",
+    "type": "distribution",
+    "hardenedRuntime": true,
+    "artifactName": "${name}-${version}.${arch}.${ext}",
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["arm64"]
+      }
+    ],
+    "entitlements": "resources/entitlements.mac.plist",
+    "entitlementsInherit": "resources/entitlements.mac.plist",
+    "gatekeeperAssess": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
+  "include": ["vite-main.env.d.ts", "electron.vite.config.*", "src/main/**/*", "src/preload/**/*", "src/server/**/*", "src/shared/**/*", "reset.d.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.e2e-spec.ts"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "composite": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    /* Linting */
+    /* Eseential */
+    "strict": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    // recommended
+    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "preserveSymlinks": true,
+    "types": ["electron-vite/node"],
+    "paths": {
+      "@shared/*": ["./src/shared/*"]
+    }
+  }
+}

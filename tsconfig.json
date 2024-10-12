@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@shared/*": ["./src/shared/*"],
+      "@/*": ["./src/renderer/src/*"],
+    }
+  },
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    {
+      "path": "./tsconfig.web.json"
+    }
+  ]
+}
